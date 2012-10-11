@@ -19,7 +19,7 @@ public class Conexion {
         }
         try {           //usuario y contra!!
             conexion = DriverManager.getConnection("jdbc:sqlserver://localhost:" + puerto2 + ";user=BLH;password=BLH; databaseName = BLHBD");
-//        conexion = DriverManager.getConnection("jdbc:sqlserver://localhost:"+puerto2+";databaseName=BLHBD;integratedSecurity=true;");
+        //conexion = DriverManager.getConnection("jdbc:sqlserver://localhost:"+puerto2+";databaseName=BLHBD;integratedSecurity=true;");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
