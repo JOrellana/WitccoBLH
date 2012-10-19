@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
@@ -133,7 +134,7 @@ public class Operaciones {
 
             modelo.addColumn("Nombre");
             modelo.addColumn("Apellido");
-            modelo.addColumn("DUI");
+            modelo.addColumn("Licencia");
             int valor = 0;
             while (resultado.next()) {
                 if (!resultado.getString("Nombre").equals("salvavidas")) {
@@ -221,11 +222,34 @@ public class Operaciones {
                 ResultSet result = sentec.executeQuery("SELECT IdUnidad FROM UnidadTransporte WHERE IdVehiculo ='" + visita.getIdVehiculo() + "' AND idMotorista = '" + idMoto + "'");
                 result.next();
                 int idUnidad = result.getInt("IdUnidad");
+                PreparedStatement sec = con.conectar().prepareStatement("INSERT INTO Ruta (Descripcion) VALUES ('" + "" + "')");
+                sec.executeUpdate();
                 for (int i = 0; i < trayectos.getRowCount(); i++) {
-                    PreparedStatement sen = con.conectar().prepareStatement("INSERT INTO VisitaDonacion (Fecha,Hora,Kilometraje,LugarSalida,LugarLlegada,Distancia,Galones,JVPM,IdUnidad) VALUES ('" + visita.getFecha() + "','" + trayectos.getValueAt(i, 0) + "','" + trayectos.getValueAt(i, 1) + "','" + trayectos.getValueAt(i, 2) + "','" + trayectos.getValueAt(i, 3) + "','" + trayectos.getValueAt(i, 4) + "','" + trayectos.getValueAt(i, 5) + "','" + visita.getJvpm() + "','" + idUnidad + "')");
+                    PreparedStatement sen = con.conectar().prepareStatement("INSERT INTO VisitaDonacion (Fecha,Hora,Kilometraje,LugarSalida,LugarLlegada,Distancia,Galones,JVPM,IdUnidad) VALUES ('" + visita.getFecha() + "','" + trayectos.getValueAt(i, 0) + "','" + trayectos.getValueAt(i, 1) + "','" + trayectos.getValueAt(i, 2) + "','" + trayectos.getValueAt(i, 3) + "','" + trayectos.getValueAt(i, 4) + "','" + "" + "','" + visita.getJvpm() + "','" + idUnidad + "')");
                     sen.executeUpdate();
                 }
+
+                int ids[] = new int[trayectos.getRowCount()];
+                for (int i = 0; i < trayectos.getRowCount(); i++) {
+                    Statement id = con.conectar().createStatement();
+                    ResultSet r = id.executeQuery("SELECT IdVisitaDonacion FROM VisitaDonacion WHERE Fecha = '" + visita.getFecha() + "' AND Hora = '" + trayectos.getValueAt(i, 0) + "' AND Kilometraje = '" + trayectos.getValueAt(i, 1) + "' AND LugarSalida = '" + trayectos.getValueAt(i, 2) + "' AND LugarLlegada = '" + trayectos.getValueAt(i, 3) + "' AND Distancia = '" + trayectos.getValueAt(i, 4) + "'AND JVPM = '" + visita.getJvpm() + "' AND IdUnidad = '" + idUnidad + "'");
+                    r.next();
+                    ids[i] = r.getInt("IdVisitaDonacion");
+                }
+
+                Statement ruta = con.conectar().createStatement();
+                ResultSet idRuta = ruta.executeQuery("SELECT TOP 1 idRuta FROM Ruta ORDER BY idRuta desc ");
+                idRuta.next();
+                int iRuta = idRuta.getInt("idRuta");
+
+                for (int i = 0; i < ids.length; i++) {
+                    PreparedStatement sen = con.conectar().prepareStatement("INSERT INTO RutaVisita (idVisitaDonacion,idRuta,Descripcion) VALUES ('" + ids[i] + "','" + iRuta + "','" + "" + "')");
+                    sen.executeUpdate();
+                }
+
             } else {
+
+
                 PreparedStatement sent = con.conectar().prepareStatement("INSERT INTO UnidadTransporte (IdVehiculo,idMotorista) VALUES ('" + visita.getIdVehiculo() + "','" + idMoto + "')");
                 sent.executeUpdate();
 
@@ -233,8 +257,28 @@ public class Operaciones {
                 ResultSet result = sentec.executeQuery("SELECT IdUnidad FROM UnidadTransporte WHERE IdVehiculo ='" + visita.getIdVehiculo() + "' AND idMotorista = '" + idMoto + "'");
                 result.next();
                 int idUnidad = result.getInt("IdUnidad");
+                PreparedStatement sec = con.conectar().prepareStatement("INSERT INTO Ruta (Descripcion) VALUES ('" + "" + "')");
+                sec.executeUpdate();
                 for (int i = 0; i < trayectos.getRowCount(); i++) {
-                    PreparedStatement sen = con.conectar().prepareStatement("INSERT INTO VisitaDonacion (Fecha,Hora,Kilometraje,LugarSalida,LugarLlegada,Distancia,Galones,JVPM,IdUnidad) VALUES ('" + visita.getFecha() + "','" + trayectos.getValueAt(i, 0) + "','" + trayectos.getValueAt(i, 1) + "','" + trayectos.getValueAt(i, 2) + "','" + trayectos.getValueAt(i, 3) + "','" + trayectos.getValueAt(i, 4) + "','" + trayectos.getValueAt(i, 5) + "','" + visita.getJvpm() + "','" + idUnidad + "')");
+                    PreparedStatement sen = con.conectar().prepareStatement("INSERT INTO VisitaDonacion (Fecha,Hora,Kilometraje,LugarSalida,LugarLlegada,Distancia,Galones,JVPM,IdUnidad) VALUES ('" + visita.getFecha() + "','" + trayectos.getValueAt(i, 0) + "','" + trayectos.getValueAt(i, 1) + "','" + trayectos.getValueAt(i, 2) + "','" + trayectos.getValueAt(i, 3) + "','" + trayectos.getValueAt(i, 4) + "','" + "" + "','" + visita.getJvpm() + "','" + idUnidad + "')");
+                    sen.executeUpdate();
+                }
+
+                int ids[] = new int[trayectos.getRowCount()];
+                for (int i = 0; i < trayectos.getRowCount(); i++) {
+                    Statement id = con.conectar().createStatement();
+                    ResultSet r = id.executeQuery("SELECT IdVisitaDonacion FROM VisitaDonacion WHERE Fecha = '" + visita.getFecha() + "' AND Hora = '" + trayectos.getValueAt(i, 0) + "' AND Kilometraje = '" + trayectos.getValueAt(i, 1) + "' AND LugarSalida = '" + trayectos.getValueAt(i, 2) + "' AND LugarLlegada = '" + trayectos.getValueAt(i, 3) + "' AND Distancia = '" + trayectos.getValueAt(i, 4) + "'AND JVPM = '" + visita.getJvpm() + "' AND IdUnidad = '" + idUnidad + "'");
+                    r.next();
+                    ids[i] = r.getInt("IdVisitaDonacion");
+                }
+
+                Statement ruta = con.conectar().createStatement();
+                ResultSet idRuta = ruta.executeQuery("SELECT TOP 1 idRuta FROM Ruta ORDER BY idRuta desc ");
+                idRuta.next();
+                int iRuta = idRuta.getInt("idRuta");
+
+                for (int i = 0; i < ids.length; i++) {
+                    PreparedStatement sen = con.conectar().prepareStatement("INSERT INTO RutaVisita (idVisitaDonacion,idRuta,Descripcion) VALUES ('" + ids[i] + "','" + iRuta + "','" + "" + "')");
                     sen.executeUpdate();
                 }
             }
@@ -264,7 +308,7 @@ public class Operaciones {
                 ResultSet resultad = sentenc.executeQuery("SELECT idMotorista, IdVehiculo FROM UnidadTransporte where IdUnidad = '" + resultado.getInt("IdUnidad") + "'");
                 resultad.next();
                 Statement sen1 = con.conectar().createStatement();
-                ResultSet res1 = sen1.executeQuery("SELECT Nombre,Apellidos FROM Motorista WHERE IdMotorista ='" + resultad.getInt("idMotorista") + "'");             
+                ResultSet res1 = sen1.executeQuery("SELECT Nombre,Apellidos FROM Motorista WHERE IdMotorista ='" + resultad.getInt("idMotorista") + "'");
                 res1.next();
                 motorista[i] = res1.getString("Nombre") + " " + res1.getString("Apellidos");
                 vehiculo[i] = resultad.getString("IdVehiculo");
@@ -284,10 +328,15 @@ public class Operaciones {
             int dato = 1;
             Statement s = con.conectar().createStatement();
             ResultSet r = s.executeQuery("SELECT * FROM VisitaDonacion ORDER BY IdVisitaDonacion asc");
+
+
             while (r.next()) {
                 if (r.getInt("IdVisitaDonacion") != 1) {
                     modelo.addRow(new Object[]{});
-                    modelo.setValueAt(r.getInt("IdVisitaDonacion"), valor, 0);
+                    Statement t = con.conectar().createStatement();
+                    ResultSet y = t.executeQuery("SELECT idRuta FROM RutaVisita WHERE idVisitaDonacion = '" + r.getInt("IdVisitaDonacion") + "'");
+                    y.next();
+                    modelo.setValueAt(y.getInt("idRuta"), valor, 0);
                     modelo.setValueAt(r.getDate("Fecha"), valor, 1);
                     modelo.setValueAt(r.getString("Hora"), valor, 2);
                     modelo.setValueAt(r.getString("LugarSalida"), valor, 3);
@@ -297,7 +346,7 @@ public class Operaciones {
                     modelo.setValueAt(vehiculo[dato], valor, 7);
                     modelo.setValueAt(r.getInt("JVPM"), valor, 8);
                     valor = valor + 1;
-                    dato = dato +1;
+                    dato = dato + 1;
                 }
             }
             table.setModel(modelo);
@@ -437,6 +486,47 @@ public class Operaciones {
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
+    }
+
+    public void modificarRuta(int idRuta, JTable tabla) {
+        try {
+            Statement sent = con.conectar().createStatement();
+            ResultSet resul = sent.executeQuery("SELECT COUNT(idVisitaDonacion) FROM RutaVisita WHERE idRuta = '" +  idRuta + "'");
+            resul.next();
+            int tama = resul.getInt("");
+            int ids[] = new int[tama];
+            int valor = 0;
+            Statement sentencia = con.conectar().createStatement();
+            ResultSet resultado = sentencia.executeQuery("SELECT idVisitaDonacion FROM RutaVisita WHERE idRuta = '" + idRuta + "'");
+            while (resultado.next()) {
+                ids[valor] = resultado.getInt("idVisitaDonacion");
+                valor = valor + 1;
+            }
+
+            DefaultTableModel modelo = new DefaultTableModel();
+
+            modelo.addColumn("Hora");
+            modelo.addColumn("Kilometraje");
+            modelo.addColumn("Lugar Salida");
+            modelo.addColumn("Lugar Llegada");
+            modelo.addColumn("Distancia (km)");
+
+
+            for (int i = 0; i < tama; i++) {
+                Statement sen = con.conectar().createStatement();
+                ResultSet res = sen.executeQuery("SELECT * FROM VisitaDonacion WHERE IdVisitaDonacion = '" + ids[i] + "'");
+                res.next();
+                modelo.addRow(new Object[]{});
+                modelo.setValueAt(res.getString("Hora"), i, 0);
+                modelo.setValueAt(res.getDouble("Kilometraje"), i, 1);
+                modelo.setValueAt(res.getString("LugarSalida"), i, 2);
+                modelo.setValueAt(res.getString("LugarLlegada"), i, 3);
+                modelo.setValueAt(res.getString("Distancia"), i, 4);
+            }
+            tabla.setModel(modelo);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
 }

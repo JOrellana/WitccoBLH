@@ -114,7 +114,7 @@ public class RutaRecDomiciliar extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Hora", "Kilometraje", "Lugar Salida", "Lugar LLegada", "Distancia (km)", "Galones"
+                "Hora", "Kilometraje", "Lugar Salida", "Lugar LLegada", "Distancia (km)"
             }
         ));
         jtTrayectos.setRowHeight(27);
@@ -402,8 +402,7 @@ private void jbAnyadirMedicoActionPerformed(java.awt.event.ActionEvent evt) {//G
                     && !jtfMotorista.getText().equals("")
                     && !jtfVehiculo.getText().equals("") && !jtTrayectos.getValueAt(jtTrayectos.getSelectedRow(), 2).equals("")
                     && !jtTrayectos.getValueAt(jtTrayectos.getSelectedRow(), 3).equals("")
-                    && !jtTrayectos.getValueAt(jtTrayectos.getSelectedRow(), 4).equals("")
-                    && !jtTrayectos.getValueAt(jtTrayectos.getSelectedRow(), 5).equals("")) {
+                    && !jtTrayectos.getValueAt(jtTrayectos.getSelectedRow(), 4).equals("")) {
                 op.almacenarRuta(nuevaVisita(), trayectos);
                 limpiarGUI();
                 comoSalir();
@@ -418,7 +417,7 @@ private void jbAnyadirMedicoActionPerformed(java.awt.event.ActionEvent evt) {//G
 private void jbAgregarTrayectoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarTrayectoriaActionPerformed
     try {
         DefaultTableModel model = (DefaultTableModel) jtTrayectos.getModel();
-        Object fila[] = {"", "", "", "", "", ""};
+        Object fila[] = {"", "", "", "", ""};
         model.addRow(fila);
         jbAgregarTrayectoria.setEnabled(false);
         jbGuardar.setEnabled(false);
@@ -434,10 +433,9 @@ private void jtTrayectosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:eve
 private void jtTrayectosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtTrayectosKeyReleased
     int key = evt.getKeyChar();
 
-    if (key == KeyEvent.VK_TAB && !jtTrayectos.getValueAt(filaAnterior, 0).equals("") && !jtTrayectos.getValueAt(filaAnterior, 1).equals("") && !jtTrayectos.getValueAt(filaAnterior, 2).equals("") && !jtTrayectos.getValueAt(filaAnterior, 3).equals("") && !jtTrayectos.getValueAt(filaAnterior, 5).equals("") && !jtTrayectos.getValueAt(filaAnterior, 4).equals("")) {
+    if (key == KeyEvent.VK_TAB && !jtTrayectos.getValueAt(filaAnterior, 0).equals("") && !jtTrayectos.getValueAt(filaAnterior, 1).equals("") && !jtTrayectos.getValueAt(filaAnterior, 2).equals("") && !jtTrayectos.getValueAt(filaAnterior, 3).equals("") && !jtTrayectos.getValueAt(filaAnterior, 4).equals("")) {
         this.jbAgregarTrayectoria.setEnabled(true);
         this.jbGuardar.setEnabled(true);
-        System.out.println(jtTrayectos.getValueAt(0, 5));
     }
 }//GEN-LAST:event_jtTrayectosKeyReleased
 
@@ -447,10 +445,9 @@ private void jtTrayectosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST
 }//GEN-LAST:event_jtTrayectosMouseClicked
 
 private void jtTrayectosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtTrayectosFocusLost
-    if (!jtTrayectos.getValueAt(filaAnterior, 0).equals("") && !jtTrayectos.getValueAt(filaAnterior, 1).equals("") && !jtTrayectos.getValueAt(filaAnterior, 2).equals("") && !jtTrayectos.getValueAt(filaAnterior, 3).equals("") && !jtTrayectos.getValueAt(filaAnterior, 4).equals("") && !jtTrayectos.getValueAt(filaAnterior, 5).equals("")) {
+    if (!jtTrayectos.getValueAt(filaAnterior, 0).equals("") && !jtTrayectos.getValueAt(filaAnterior, 1).equals("") && !jtTrayectos.getValueAt(filaAnterior, 2).equals("") && !jtTrayectos.getValueAt(filaAnterior, 3).equals("") && !jtTrayectos.getValueAt(filaAnterior, 4).equals("")) {
         this.jbAgregarTrayectoria.setEnabled(true);
         this.jbGuardar.setEnabled(true);
-        System.out.println(jtTrayectos.getValueAt(0, 5));
     }
 }//GEN-LAST:event_jtTrayectosFocusLost
 
@@ -525,7 +522,7 @@ private void jtTrayectosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:ev
     private javax.swing.JButton jbCancelar;
     private javax.swing.JButton jbGuardar;
     public static javax.swing.JLabel jlIndiceOc;
-    private javax.swing.JTable jtTrayectos;
+    public static javax.swing.JTable jtTrayectos;
     public static javax.swing.JTextField jtfMedico;
     public static javax.swing.JTextField jtfMotorista;
     public static javax.swing.JTextField jtfVehiculo;

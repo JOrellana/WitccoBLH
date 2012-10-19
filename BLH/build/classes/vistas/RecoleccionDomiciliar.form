@@ -347,10 +347,13 @@
             </CodeStatement>
           </LayoutCode>
         </Container>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="jbModificarRuta">
           <Properties>
             <Property name="text" type="java.lang.String" value="Modificar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbModificarRutaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
@@ -1062,11 +1065,11 @@
             <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
           </StatementProvider>
           <Parameters>
-            <CodeExpression id="61_jButton1">
-              <CodeVariable name="jButton1" type="8194" declaredType="javax.swing.JButton"/>
+            <CodeExpression id="61_jbModificarRuta">
+              <CodeVariable name="jbModificarRuta" type="8194" declaredType="javax.swing.JButton"/>
               <ExpressionOrigin>
                 <ExpressionProvider type="ComponentRef">
-                  <ComponentRef name="jButton1"/>
+                  <ComponentRef name="jbModificarRuta"/>
                 </ExpressionProvider>
               </ExpressionOrigin>
             </CodeExpression>

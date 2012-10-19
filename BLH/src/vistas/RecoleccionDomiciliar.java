@@ -70,7 +70,7 @@ public class RecoleccionDomiciliar extends javax.swing.JFrame {
         jcbSeleccionBuscador = new javax.swing.JComboBox();
         jPanel2 = new javax.swing.JPanel();
         jbNuevaRuta = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jbModificarRuta = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
@@ -187,13 +187,18 @@ public class RecoleccionDomiciliar extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 3;
         jPanel1.add(jPanel2, gridBagConstraints);
 
-        jButton1.setText("Modificar");
+        jbModificarRuta.setText("Modificar");
+        jbModificarRuta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModificarRutaActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 27;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 2;
-        jPanel1.add(jButton1, gridBagConstraints);
+        jPanel1.add(jbModificarRuta, gridBagConstraints);
 
         jButton2.setText("Eliminar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -284,6 +289,17 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }
 }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jbModificarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarRutaActionPerformed
+        // TODO add your handling code here:
+    RutaRecDomiciliar rrd = new RutaRecDomiciliar();
+    rrd.setVisible(true);
+    RutaRecDomiciliar.jlIndiceOc.setText(jlIndiceOculto.getText());
+    System.out.println(jlIndiceOculto.getText());
+    op.modificarRuta(Integer.parseInt(jtRutas.getValueAt(jtRutas.getSelectedRow(), 0).toString()), RutaRecDomiciliar.jtTrayectos);
+    this.setVisible(false);
+        
+    }//GEN-LAST:event_jbModificarRutaActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -322,7 +338,6 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -331,6 +346,7 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     public static javax.swing.JButton jbAnyadir;
+    private javax.swing.JButton jbModificarRuta;
     private javax.swing.JButton jbNuevaRuta;
     public static javax.swing.JButton jbSalir;
     private javax.swing.JComboBox jcbSeleccionBuscador;

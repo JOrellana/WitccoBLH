@@ -311,13 +311,12 @@
                 <Component class="javax.swing.JTable" name="jtTrayectos">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="6" rowCount="0">
+                      <Table columnCount="5" rowCount="0">
                         <Column editable="true" title="Hora" type="java.lang.Object"/>
                         <Column editable="true" title="Kilometraje" type="java.lang.Object"/>
                         <Column editable="true" title="Lugar Salida" type="java.lang.Object"/>
                         <Column editable="true" title="Lugar LLegada" type="java.lang.Object"/>
                         <Column editable="true" title="Distancia (km)" type="java.lang.Object"/>
-                        <Column editable="true" title="Galones" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -365,6 +364,9 @@
                     <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtTrayectosKeyPressed"/>
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtTrayectosKeyReleased"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>

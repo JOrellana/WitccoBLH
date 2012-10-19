@@ -87,7 +87,7 @@ public class AdministrarMotoristas extends javax.swing.JFrame {
                 {"Erick", "Cruz", "3"}
             },
             new String [] {
-                "Nombres", "Apellidos", "DUI"
+                "Nombres", "Apellidos", "Licencia"
             }
         ));
         jtMotoristas.setRowHeight(25);
