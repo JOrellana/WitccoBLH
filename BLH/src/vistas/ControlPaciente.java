@@ -155,8 +155,6 @@ public class ControlPaciente extends javax.swing.JFrame {
         jbCancelar = new javax.swing.JButton();
         jbAlmacenar = new javax.swing.JButton();
         jbModificar = new javax.swing.JButton();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jtPacientes = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         jtConsultas = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
@@ -207,6 +205,9 @@ public class ControlPaciente extends javax.swing.JFrame {
         jlNombreEncargado = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jtPacientes = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -542,26 +543,6 @@ public class ControlPaciente extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 2;
         jPanel1.add(jPanel6, gridBagConstraints);
 
-        jtPacientes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jtPacientes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"89-1", "Erick", "Cruz"}
-            },
-            new String [] {
-                "Carnet", "Nombres", "Apellidos"
-            }
-        ));
-        jtPacientes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jtPacientes.setRowHeight(25);
-        jScrollPane6.setViewportView(jtPacientes);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.gridheight = 14;
-        jPanel1.add(jScrollPane6, gridBagConstraints);
-
         jtConsultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -693,6 +674,7 @@ public class ControlPaciente extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 2;
         jPanel2.add(jtfTarjeta, gridBagConstraints);
 
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondos/fondito2.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -717,7 +699,7 @@ public class ControlPaciente extends javax.swing.JFrame {
         jLabel10.setText("Fecha de nacimiento:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 11;
         gridBagConstraints.gridheight = 2;
         jPanel3.add(jLabel10, gridBagConstraints);
@@ -753,7 +735,7 @@ public class ControlPaciente extends javax.swing.JFrame {
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel14.setText("Semanas de Gestación:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 12;
         gridBagConstraints.gridheight = 3;
@@ -768,7 +750,7 @@ public class ControlPaciente extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 18;
         gridBagConstraints.gridheight = 3;
         jPanel3.add(jcfechaNac, gridBagConstraints);
@@ -781,7 +763,7 @@ public class ControlPaciente extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 2;
         jPanel3.add(jlEdad, gridBagConstraints);
 
-        jcbDepartamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ahuachapan", "Cuscatlan", "Chalatenango", "Cabañas", "La Libertad", "La Unión", "La Paz", "Morazán", "Sonsonate", "Santa Ana", "San Vicente", "San Salvador", "San Miguel", "Usulután" }));
+        jcbDepartamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ahuachapan", "Cuscatlan", "Chalatenango", "Cabañas", "La Libertad", "La Unión", "La Paz", "Morazán", "Sonsonate", "Santa Ana", "San Vicente", "San Salvador", "San Miguel", "Usulután", "Fuera del país" }));
         jcbDepartamento.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jcbDepartamentoItemStateChanged(evt);
@@ -790,7 +772,7 @@ public class ControlPaciente extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridwidth = 13;
+        gridBagConstraints.gridwidth = 12;
         gridBagConstraints.gridheight = 3;
         jPanel3.add(jcbDepartamento, gridBagConstraints);
 
@@ -818,16 +800,16 @@ public class ControlPaciente extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 17;
-        gridBagConstraints.gridwidth = 13;
+        gridBagConstraints.gridwidth = 12;
         gridBagConstraints.gridheight = 3;
         jPanel3.add(jcbMunicipio, gridBagConstraints);
 
         jLabel20.setText("Otros Datos:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.gridheight = 2;
         jPanel3.add(jLabel20, gridBagConstraints);
 
         jbOtrosDatos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/add.png"))); // NOI18N
@@ -838,11 +820,12 @@ public class ControlPaciente extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.gridheight = 2;
         jPanel3.add(jbOtrosDatos, gridBagConstraints);
 
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondos/fondito3.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1042,13 +1025,14 @@ public class ControlPaciente extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 4;
         jPanel4.add(jsGravidez, gridBagConstraints);
 
-        jlNombreEncargado.setFont(new java.awt.Font("Tahoma", 1, 11));
+        jlNombreEncargado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 13;
         jPanel4.add(jlNombreEncargado, gridBagConstraints);
 
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondos/fondito3.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1070,6 +1054,8 @@ public class ControlPaciente extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 12;
         jPanel1.add(jPanel5, gridBagConstraints);
 
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bebé+enfermo (Custom).jpg"))); // NOI18N
         jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 255), 4, true));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1078,6 +1064,37 @@ public class ControlPaciente extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.gridheight = 6;
         jPanel1.add(jLabel2, gridBagConstraints);
+
+        jtPacientes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jtPacientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"89-1", "Erick", "Cruz"}
+            },
+            new String [] {
+                "Carnet", "Nombres", "Apellidos"
+            }
+        ));
+        jtPacientes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jtPacientes.setRowHeight(25);
+        jScrollPane6.setViewportView(jtPacientes);
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = 14;
+        jPanel1.add(jPanel10, gridBagConstraints);
 
         jMenu1.setText("Archivo");
 
@@ -1109,15 +1126,15 @@ public class ControlPaciente extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1035, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1035, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 528, Short.MAX_VALUE)
         );
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-1051)/2, (screenSize.height-565)/2, 1051, 565);
+        setBounds((screenSize.width-1051)/2, (screenSize.height-587)/2, 1051, 587);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbAlmacenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlmacenarActionPerformed
@@ -1168,6 +1185,7 @@ public class ControlPaciente extends javax.swing.JFrame {
     private void jbAgregarEncargadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarEncargadoActionPerformed
         // TODO add your handling code here:
         new InstanceOfConsult().encargado.setVisible(true);
+        AdministrarEncargado.jlIndiceOculto.setText("1");
         this.setVisible(false);
     }//GEN-LAST:event_jbAgregarEncargadoActionPerformed
 
@@ -1635,6 +1653,7 @@ public class ControlPaciente extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

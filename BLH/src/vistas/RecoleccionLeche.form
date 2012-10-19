@@ -36,7 +36,6 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="title" type="java.lang.String" value="Donaci&#xf3;n -  Banco de Leche Humana"/>
-    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
@@ -383,6 +382,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/fondos/fondito1.png"/>
                 </Property>
@@ -1325,7 +1325,7 @@
               <Parameters>
                 <CodeExpression id="79">
                   <ExpressionOrigin>
-                    <Value type="int" value="23"/>
+                    <Value type="int" value="30"/>
                   </ExpressionOrigin>
                 </CodeExpression>
               </Parameters>
@@ -1661,13 +1661,6 @@
                 <Property name="text" type="java.lang.String" value="Apta para donar?"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel7">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes/fondos/fondito1.png"/>
-                </Property>
-              </Properties>
-            </Component>
             <Component class="org.freixas.jcalendar.JCalendarCombo" name="jcFechaObtDatos">
               <Properties>
                 <Property name="date" type="java.util.Date" editor="org.netbeans.beaninfo.editors.DateEditor">
@@ -1682,6 +1675,14 @@
             <Component class="javax.swing.JLabel" name="jLabel29">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Fecha obtenci&#xf3;n de datos:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel7">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/fondos/fondito1.png"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>
@@ -3894,7 +3895,7 @@
               <Parameters>
                 <CodeExpression id="242">
                   <ExpressionOrigin>
-                    <Value type="int" value="0"/>
+                    <Value type="int" value="2"/>
                   </ExpressionOrigin>
                 </CodeExpression>
               </Parameters>
@@ -3907,7 +3908,7 @@
               <Parameters>
                 <CodeExpression id="243">
                   <ExpressionOrigin>
-                    <Value type="int" value="0"/>
+                    <Value type="int" value="26"/>
                   </ExpressionOrigin>
                 </CodeExpression>
               </Parameters>
@@ -3920,7 +3921,7 @@
               <Parameters>
                 <CodeExpression id="244">
                   <ExpressionOrigin>
-                    <Value type="int" value="30"/>
+                    <Value type="int" value="25"/>
                   </ExpressionOrigin>
                 </CodeExpression>
               </Parameters>
@@ -3933,7 +3934,7 @@
               <Parameters>
                 <CodeExpression id="245">
                   <ExpressionOrigin>
-                    <Value type="int" value="23"/>
+                    <Value type="int" value="3"/>
                   </ExpressionOrigin>
                 </CodeExpression>
               </Parameters>
@@ -3944,11 +3945,11 @@
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
               <Parameters>
-                <CodeExpression id="246_jLabel7">
-                  <CodeVariable name="jLabel7" type="8194" declaredType="javax.swing.JLabel"/>
+                <CodeExpression id="246_jcFechaObtDatos">
+                  <CodeVariable name="jcFechaObtDatos" type="8194" declaredType="org.freixas.jcalendar.JCalendarCombo"/>
                   <ExpressionOrigin>
                     <ExpressionProvider type="ComponentRef">
-                      <ComponentRef name="jLabel7"/>
+                      <ComponentRef name="jcFechaObtDatos"/>
                     </ExpressionProvider>
                   </ExpressionOrigin>
                 </CodeExpression>
@@ -3976,7 +3977,7 @@
               <Parameters>
                 <CodeExpression id="248">
                   <ExpressionOrigin>
-                    <Value type="int" value="2"/>
+                    <Value type="int" value="1"/>
                   </ExpressionOrigin>
                 </CodeExpression>
               </Parameters>
@@ -3989,7 +3990,7 @@
               <Parameters>
                 <CodeExpression id="249">
                   <ExpressionOrigin>
-                    <Value type="int" value="26"/>
+                    <Value type="int" value="24"/>
                   </ExpressionOrigin>
                 </CodeExpression>
               </Parameters>
@@ -4002,7 +4003,7 @@
               <Parameters>
                 <CodeExpression id="250">
                   <ExpressionOrigin>
-                    <Value type="int" value="25"/>
+                    <Value type="int" value="16"/>
                   </ExpressionOrigin>
                 </CodeExpression>
               </Parameters>
@@ -4015,7 +4016,7 @@
               <Parameters>
                 <CodeExpression id="251">
                   <ExpressionOrigin>
-                    <Value type="int" value="3"/>
+                    <Value type="int" value="2"/>
                   </ExpressionOrigin>
                 </CodeExpression>
               </Parameters>
@@ -4026,11 +4027,11 @@
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
               <Parameters>
-                <CodeExpression id="252_jcFechaObtDatos">
-                  <CodeVariable name="jcFechaObtDatos" type="8194" declaredType="org.freixas.jcalendar.JCalendarCombo"/>
+                <CodeExpression id="252_jLabel29">
+                  <CodeVariable name="jLabel29" type="8194" declaredType="javax.swing.JLabel"/>
                   <ExpressionOrigin>
                     <ExpressionProvider type="ComponentRef">
-                      <ComponentRef name="jcFechaObtDatos"/>
+                      <ComponentRef name="jLabel29"/>
                     </ExpressionProvider>
                   </ExpressionOrigin>
                 </CodeExpression>
@@ -4058,7 +4059,7 @@
               <Parameters>
                 <CodeExpression id="254">
                   <ExpressionOrigin>
-                    <Value type="int" value="1"/>
+                    <Value type="int" value="0"/>
                   </ExpressionOrigin>
                 </CodeExpression>
               </Parameters>
@@ -4071,7 +4072,7 @@
               <Parameters>
                 <CodeExpression id="255">
                   <ExpressionOrigin>
-                    <Value type="int" value="24"/>
+                    <Value type="int" value="0"/>
                   </ExpressionOrigin>
                 </CodeExpression>
               </Parameters>
@@ -4084,7 +4085,7 @@
               <Parameters>
                 <CodeExpression id="256">
                   <ExpressionOrigin>
-                    <Value type="int" value="16"/>
+                    <Value type="int" value="30"/>
                   </ExpressionOrigin>
                 </CodeExpression>
               </Parameters>
@@ -4097,7 +4098,7 @@
               <Parameters>
                 <CodeExpression id="257">
                   <ExpressionOrigin>
-                    <Value type="int" value="2"/>
+                    <Value type="int" value="30"/>
                   </ExpressionOrigin>
                 </CodeExpression>
               </Parameters>
@@ -4108,11 +4109,11 @@
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
               <Parameters>
-                <CodeExpression id="258_jLabel29">
-                  <CodeVariable name="jLabel29" type="8194" declaredType="javax.swing.JLabel"/>
+                <CodeExpression id="258_jLabel7">
+                  <CodeVariable name="jLabel7" type="8194" declaredType="javax.swing.JLabel"/>
                   <ExpressionOrigin>
                     <ExpressionProvider type="ComponentRef">
-                      <ComponentRef name="jLabel29"/>
+                      <ComponentRef name="jLabel7"/>
                     </ExpressionProvider>
                   </ExpressionOrigin>
                 </CodeExpression>
@@ -4145,7 +4146,7 @@
                   </Table>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value="Donantes"/>
-                <Property name="autoResizeMode" type="int" value="0"/>
+                <Property name="autoResizeMode" type="int" value="4"/>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
                     <Column maxWidth="-1" minWidth="-1" prefWidth="30" resizable="false">
@@ -6036,6 +6037,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/fondos/fondito1.png"/>
                 </Property>
@@ -7142,7 +7144,7 @@
               <Parameters>
                 <CodeExpression id="444">
                   <ExpressionOrigin>
-                    <Value type="int" value="23"/>
+                    <Value type="int" value="30"/>
                   </ExpressionOrigin>
                 </CodeExpression>
               </Parameters>

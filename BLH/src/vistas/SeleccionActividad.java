@@ -6,18 +6,29 @@ import Instancia.InstanceOfGeneralidades;
 import Instancia.InstanceOfTransport;
 import accesoDatos.OperacionesUsuarios;
 import Operaciones.OperacionesReportes;
+import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 public class SeleccionActividad extends javax.swing.JFrame {
-    
+
     String usu = "w-out";
     OperacionesUsuarios opU = new OperacionesUsuarios();
     OperacionesReportes opr = new OperacionesReportes();
+
     public SeleccionActividad() {
         initComponents();
 //        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
-    
+
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/iconBLH.png"));
+
+
+        return retValue;
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -26,18 +37,24 @@ public class SeleccionActividad extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
         jlDonacion = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
         jlConsultas = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
         jlRecDomiciliar = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jEditorPane1 = new javax.swing.JEditorPane();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -60,13 +77,10 @@ public class SeleccionActividad extends javax.swing.JFrame {
         jmiAcercaDe = new javax.swing.JMenuItem();
         jmiAyuda = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Seleccionar Actividad - Banco de Leche Humana");
+        setIconImage(getIconImage());
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                formWindowClosed(evt);
-            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
@@ -82,16 +96,12 @@ public class SeleccionActividad extends javax.swing.JFrame {
         koalaLayout1.setGridwidth(15);
         jPanel1.setLayout(koalaLayout1);
 
-        jPanel6.setBackground(new java.awt.Color(0, 74, 138));
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Seleccionar Actividad", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel6.setBackground(new java.awt.Color(0, 86, 172));
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Seleccionar Actividad", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 0, 24), new java.awt.Color(255, 255, 255))); // NOI18N
         net.java.dev.koalalayout.KoalaLayout koalaLayout3 = new net.java.dev.koalalayout.KoalaLayout();
         koalaLayout3.setGridheight(15);
         koalaLayout3.setGridwidth(15);
         jPanel6.setLayout(koalaLayout3);
-
-        jPanel7.setBackground(new java.awt.Color(0, 74, 138));
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Donación", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
-        jPanel7.setLayout(new net.java.dev.koalalayout.KoalaLayout());
 
         jlDonacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlDonacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/madre2.png"))); // NOI18N
@@ -103,22 +113,12 @@ public class SeleccionActividad extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 10;
-        gridBagConstraints.gridheight = 2;
-        jPanel7.add(jlDonacion, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 9;
-        gridBagConstraints.gridheight = 4;
-        jPanel6.add(jPanel7, gridBagConstraints);
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = 3;
+        jPanel6.add(jlDonacion, gridBagConstraints);
 
-        jPanel8.setBackground(new java.awt.Color(0, 74, 138));
-        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Consultas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
-        jPanel8.setLayout(new net.java.dev.koalalayout.KoalaLayout());
-
+        jlConsultas.setBackground(new java.awt.Color(0, 51, 204));
         jlConsultas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/doctor-icon_1.png"))); // NOI18N
         jlConsultas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -129,23 +129,12 @@ public class SeleccionActividad extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 10;
-        gridBagConstraints.gridheight = 2;
-        jPanel8.add(jlConsultas, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 9;
-        gridBagConstraints.gridheight = 4;
-        jPanel6.add(jPanel8, gridBagConstraints);
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = 3;
+        jPanel6.add(jlConsultas, gridBagConstraints);
 
-        jPanel9.setBackground(new java.awt.Color(0, 74, 138));
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Recolección Domiciliar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
-        jPanel9.setLayout(new net.java.dev.koalalayout.KoalaLayout());
-
-        jlRecDomiciliar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jlRecDomiciliar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlRecDomiciliar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/chof.png"))); // NOI18N
         jlRecDomiciliar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jlRecDomiciliar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -155,59 +144,137 @@ public class SeleccionActividad extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        jPanel9.add(jlRecDomiciliar, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 12;
-        gridBagConstraints.gridheight = 5;
-        jPanel6.add(jPanel9, gridBagConstraints);
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = 4;
+        jPanel6.add(jlRecDomiciliar, gridBagConstraints);
+
+        jLabel5.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(217, 239, 255));
+        jLabel5.setText("Control Pacientes");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 8;
+        jPanel6.add(jLabel5, gridBagConstraints);
+
+        jLabel8.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(217, 239, 255));
+        jLabel8.setText("Recolección Domiciliar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 8;
+        jPanel6.add(jLabel8, gridBagConstraints);
+
+        jLabel9.setBackground(new java.awt.Color(153, 204, 255));
+        jLabel9.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(217, 239, 255));
+        jLabel9.setText("Donación ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 8;
+        jPanel6.add(jLabel9, gridBagConstraints);
+
+        jScrollPane2.setBackground(new java.awt.Color(0, 86, 172));
+        jScrollPane2.setBorder(null);
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        jTextArea1.setBackground(new java.awt.Color(0, 86, 172));
+        jTextArea1.setColumns(20);
+        jTextArea1.setEditable(false);
+        jTextArea1.setFont(new java.awt.Font("Arial Narrow", 0, 14)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(217, 239, 255));
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Muestra de forma ordenada las recolecciones\ndomiciliares realizadas, permite agregar\nnuevas rutas de recolecciones");
+        jTextArea1.setAutoscrolls(false);
+        jScrollPane2.setViewportView(jTextArea1);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 11;
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.gridheight = 2;
+        jPanel6.add(jScrollPane2, gridBagConstraints);
+
+        jScrollPane3.setBackground(new java.awt.Color(0, 86, 172));
+        jScrollPane3.setBorder(null);
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        jTextArea2.setBackground(new java.awt.Color(0, 86, 172));
+        jTextArea2.setColumns(20);
+        jTextArea2.setEditable(false);
+        jTextArea2.setFont(new java.awt.Font("Arial Narrow", 0, 14)); // NOI18N
+        jTextArea2.setForeground(new java.awt.Color(217, 239, 255));
+        jTextArea2.setRows(5);
+        jTextArea2.setText("Registra información de las donantes y\nlas donaciones realizadas. Ademas imprime\ny envia la información a Excel");
+        jTextArea2.setAutoscrolls(false);
+        jScrollPane3.setViewportView(jTextArea2);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.gridheight = 2;
+        jPanel6.add(jScrollPane3, gridBagConstraints);
+
+        jScrollPane4.setBackground(new java.awt.Color(0, 86, 172));
+        jScrollPane4.setBorder(null);
+        jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        jTextArea3.setBackground(new java.awt.Color(0, 86, 172));
+        jTextArea3.setColumns(20);
+        jTextArea3.setEditable(false);
+        jTextArea3.setFont(new java.awt.Font("Arial Narrow", 0, 14)); // NOI18N
+        jTextArea3.setForeground(new java.awt.Color(217, 239, 255));
+        jTextArea3.setRows(5);
+        jTextArea3.setText("Registra información de las pacientes y sus\nconsultas. Ademas imprime y envia la \ninformación a Excel");
+        jTextArea3.setAutoscrolls(false);
+        jScrollPane4.setViewportView(jTextArea3);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.gridheight = 2;
+        jPanel6.add(jScrollPane4, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.gridheight = 15;
         jPanel1.add(jPanel6, gridBagConstraints);
-
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondos/witcco.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.gridheight = 8;
-        jPanel1.add(jLabel5, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondos/logoHosp.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.gridheight = 5;
         jPanel1.add(jLabel3, gridBagConstraints);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondos/logoBLH.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.gridheight = 6;
         jPanel1.add(jLabel6, gridBagConstraints);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondos/text0.1.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.gridheight = 3;
@@ -218,17 +285,32 @@ public class SeleccionActividad extends javax.swing.JFrame {
         jScrollPane1.setWheelScrollingEnabled(false);
 
         jEditorPane1.setEditable(false);
-        jEditorPane1.setFont(new java.awt.Font("Microsoft PhagsPa", 1, 13));
-        jEditorPane1.setText("Desarrollado por estudiantes de la Universidad de El Salvador FMOcc, durante la asignatura \nDiseño de Sistemas - 2012.");
+        jEditorPane1.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        jEditorPane1.setText("Desarrollado por estudiantes de la Universidad de El Salvador FMOcc, \ndurante la asignatura Diseño de Sistemas - 2012.");
+        jEditorPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(jEditorPane1);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.gridwidth = 9;
         gridBagConstraints.gridheight = 2;
         jPanel1.add(jScrollPane1, gridBagConstraints);
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondos/flechaSalir.png"))); // NOI18N
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        jPanel1.add(jLabel2, gridBagConstraints);
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondos/fondo.png"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(910, 400));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -414,44 +496,48 @@ public class SeleccionActividad extends javax.swing.JFrame {
         // TODO add your handling code here:
         new InstanceOf().administrador.setVisible(true);
     }//GEN-LAST:event_jmiAdminActionPerformed
-    
+
     private void jmiSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiSalirActionPerformed
-        // TODO add your handling code here:   
-        int msj = JOptionPane.showConfirmDialog(null, "¿En verdad desea Salir?", "Confirmación", JOptionPane.YES_NO_OPTION);
-        if (msj == 0) {
+        
             usu = opU.usuarioUp();
             opU.setEstado(usu, "down");
-            System.exit(0);
-        }
+
+            new Logueo().setVisible(true);
+            this.setVisible(false);
+        
     }//GEN-LAST:event_jmiSalirActionPerformed
-    
+
     private void jmiAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAcercaDeActionPerformed
         // TODO add your handling code here:
         new InstanceOfGeneralidades().acercaDe.setVisible(true);
     }//GEN-LAST:event_jmiAcercaDeActionPerformed
-    
+
     private void jmiNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiNuevoUsuarioActionPerformed
-        // TODO add your handling code here:
-        new InstanceOfGeneralidades().usuario.setVisible(true);
+        if (opU.isAdmin()) {
+            new InstanceOfGeneralidades().usuario.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Lo siento, usted no esta autorizado para realizar esta acción\nsolo un administrador puede hacerlo", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_jmiNuevoUsuarioActionPerformed
-    
+
     private void jmiAdmonUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAdmonUserActionPerformed
-        // TODO add your handling code here:
+
         new InstanceOfGeneralidades().admonUser.setVisible(true);
     }//GEN-LAST:event_jmiAdmonUserActionPerformed
-    
+
 private void jlDonacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlDonacionMouseClicked
     // TODO add your handling code here:
     new InstanceOf().donante.setVisible(true);
     this.setVisible(false);
 }//GEN-LAST:event_jlDonacionMouseClicked
-    
+
 private void jlConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlConsultasMouseClicked
     // TODO add your handling code here:
     new ControlPaciente().setVisible(true);
     this.setVisible(false);
 }//GEN-LAST:event_jlConsultasMouseClicked
-    
+
 private void jlRecDomiciliarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlRecDomiciliarMouseClicked
     // TODO add your handling code here:
     try {
@@ -462,48 +548,48 @@ private void jlRecDomiciliarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-F
         System.out.println("Error: " + e.getMessage() + " - " + e.getLocalizedMessage());
     }
 }//GEN-LAST:event_jlRecDomiciliarMouseClicked
-    
+
 private void jmiAdmonMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAdmonMedicoActionPerformed
     new InstanceOfConsult().Admed.setVisible(true);
     AdministrarMedic.jlIndiceOculto.setText("1");
     AdministrarMedic.jbAgregar.setEnabled(false);
-    
+
 }//GEN-LAST:event_jmiAdmonMedicoActionPerformed
-    
+
 private void jmiAdmMotoristasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAdmMotoristasActionPerformed
     new InstanceOfGeneralidades().admMotoristas.setVisible(true);
     AdministrarMotoristas.jlIndiceOculto.setText("1");
     AdministrarMotoristas.jbAgregarMotorista.setEnabled(false);
 }//GEN-LAST:event_jmiAdmMotoristasActionPerformed
-    
+
     private void jmiAdmVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAdmVehiculosActionPerformed
         // TODO add your handling code here:
         new AdministrarVehiculos().setVisible(true);
         AdministrarVehiculos.jlIndiceOculto.setText("1");
         AdministrarVehiculos.jbAgregar.setEnabled(false);
     }//GEN-LAST:event_jmiAdmVehiculosActionPerformed
-    
-private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-}//GEN-LAST:event_formWindowClosed
-    
+
 private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-    usu = opU.usuarioUp();
-    opU.setEstado(usu, "down");
-}//GEN-LAST:event_formWindowClosing
+  
+        usu = opU.usuarioUp();
+        opU.setEstado(usu, "down");
+        new Logueo().setVisible(true);
+        this.setVisible(false);
     
+}//GEN-LAST:event_formWindowClosing
+
 private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
     if (opU.isAdmin()) {
-        
     }
 }//GEN-LAST:event_jMenu2ActionPerformed
-    
+
 private void jmiLaboratoristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiLaboratoristaActionPerformed
     // TODO add your handling code here:
     InformeLaboratorista infL = new InformeLaboratorista();
     infL.setVisible(true);
     this.setVisible(false);
 }//GEN-LAST:event_jmiLaboratoristaActionPerformed
-    
+
 private void jmiProduccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiProduccionActionPerformed
     // TODO add your handling code here:
     InformeProduccion infP = new InformeProduccion();
@@ -533,11 +619,21 @@ private void jmiProduccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     }//GEN-LAST:event_jmiMotoristaActionPerformed
 
 private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
- // TODO add your handling code here:
+    // TODO add your handling code here:
     new AdministrarEncargado().setVisible(true);
+    AdministrarEncargado.jlIndiceOculto.setText("2");
     this.setVisible(false);
 }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+   
+        usu = opU.usuarioUp();
+        opU.setEstado(usu, "down");
+        new Logueo().setVisible(true);
+        this.setVisible(false);
     
+}//GEN-LAST:event_jLabel2MouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -564,7 +660,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            
+
             public void run() {
                 new SeleccionActividad().setVisible(true);
             }
@@ -573,10 +669,13 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -586,10 +685,13 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JLabel jlConsultas;
     private javax.swing.JLabel jlDonacion;
     private javax.swing.JLabel jlRecDomiciliar;

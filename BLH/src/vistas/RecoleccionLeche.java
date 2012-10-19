@@ -111,9 +111,9 @@ public class RecoleccionLeche extends javax.swing.JFrame {
         jrbAptaSI = new javax.swing.JRadioButton();
         jrbAptaNO = new javax.swing.JRadioButton();
         jLabel35 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jcFechaObtDatos = new org.freixas.jcalendar.JCalendarCombo();
         jLabel29 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jtDonantes = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
@@ -159,7 +159,6 @@ public class RecoleccionLeche extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Donación -  Banco de Leche Humana");
-        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -338,12 +337,13 @@ public class RecoleccionLeche extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 2;
         jPanel5.add(jLabel36, gridBagConstraints);
 
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondos/fondito1.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 30;
-        gridBagConstraints.gridheight = 23;
+        gridBagConstraints.gridheight = 30;
         jPanel5.add(jLabel11, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -706,14 +706,6 @@ public class RecoleccionLeche extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 2;
         jPanel8.add(jLabel35, gridBagConstraints);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondos/fondito1.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 30;
-        gridBagConstraints.gridheight = 23;
-        jPanel8.add(jLabel7, gridBagConstraints);
-
         jcFechaObtDatos.setDate(new java.util.Date(631202824000L));
         jcFechaObtDatos.setEnabled(false);
         jcFechaObtDatos.addDateListener(new org.freixas.jcalendar.DateListener() {
@@ -735,6 +727,15 @@ public class RecoleccionLeche extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 16;
         gridBagConstraints.gridheight = 2;
         jPanel8.add(jLabel29, gridBagConstraints);
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondos/fondito1.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 30;
+        gridBagConstraints.gridheight = 30;
+        jPanel8.add(jLabel7, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 21;
@@ -762,7 +763,7 @@ public class RecoleccionLeche extends javax.swing.JFrame {
             }
         });
         jtDonantes.setToolTipText("Donantes");
-        jtDonantes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jtDonantes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         jScrollPane6.setViewportView(jtDonantes);
         jtDonantes.getColumnModel().getColumn(0).setResizable(false);
         jtDonantes.getColumnModel().getColumn(0).setPreferredWidth(30);
@@ -1226,12 +1227,13 @@ public class RecoleccionLeche extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 2;
         jPanel13.add(jLabel4, gridBagConstraints);
 
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondos/fondito1.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 30;
-        gridBagConstraints.gridheight = 23;
+        gridBagConstraints.gridheight = 30;
         jPanel13.add(jLabel10, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();

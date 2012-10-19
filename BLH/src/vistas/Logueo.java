@@ -2,6 +2,8 @@ package vistas;
 
 import accesoDatos.OperacionesUsuarios;
 import clases.Usuario;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
 
@@ -20,9 +22,17 @@ public class Logueo extends javax.swing.JFrame {
 
     }
 
+      @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/iconBLH.png"));
+
+
+        return retValue;
+    }
+      
     public void ingresarDatos(String user, String pass) {
-        char passArray[] = jpfContraseña.getPassword();
-        String Password = new String(passArray);
+//        char passArray[] = jpfContraseña.getPassword();
+//        String Password = new String(passArray);
 
         if (op.isLogged(user, pass)) {
             act.setVisible(true);
@@ -65,6 +75,7 @@ public class Logueo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Logueo - Witcco BLH");
+        setIconImage(getIconImage());
         setResizable(false);
         setUndecorated(true);
 
@@ -202,7 +213,7 @@ public class Logueo extends javax.swing.JFrame {
         jPanel1.add(jPanelDatos, gridBagConstraints);
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondos/logoinicio.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondos/logueo.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
