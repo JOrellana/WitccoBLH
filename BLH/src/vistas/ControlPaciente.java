@@ -25,6 +25,7 @@ import clases.PropiedadesPaciente;
 import java.io.IOException;
 import java.util.Date;
 import java.util.logging.Level;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import jxl.write.WriteException;
@@ -66,6 +67,7 @@ public class ControlPaciente extends javax.swing.JFrame {
 
     public ControlPaciente() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         fechaNa = jcfechaNac.getDate();
         semGes = jsSemGestacion.getValue().toString();
         opDN.listarNinos(jtPacientes);
@@ -223,6 +225,7 @@ public class ControlPaciente extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         net.java.dev.koalalayout.KoalaLayout koalaLayout9 = new net.java.dev.koalalayout.KoalaLayout();
         koalaLayout9.setGridheight(22);
         koalaLayout9.setGridwidth(26);
@@ -1025,7 +1028,7 @@ public class ControlPaciente extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 4;
         jPanel4.add(jsGravidez, gridBagConstraints);
 
-        jlNombreEncargado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jlNombreEncargado.setFont(new java.awt.Font("Tahoma", 1, 11));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 0;
@@ -1174,11 +1177,11 @@ public class ControlPaciente extends javax.swing.JFrame {
         if (jtPacientes.getSelectedRow() == -1 || jtfNombres.getText().equals("")) {
             JOptionPane.showMessageDialog(rootPane, "¡Debe seleccionar un paciente,\ny abrir sus datos \npara la nueva consulta!");
         } else {
+            jbNuevaConsulta.setEnabled(false);
             new Consult().setVisible(true);
             Consult.jlCarnet.setText(jtfTarjeta.getText());
             Date fec = new java.sql.Date(jcfechaNac.getDate().getTime());
             Consult.jlFechaNac.setText(fec.toString());
-            jbNuevaConsulta.setEnabled(false);
         }
     }//GEN-LAST:event_jbNuevaConsultaActionPerformed
 
@@ -1554,10 +1557,10 @@ public class ControlPaciente extends javax.swing.JFrame {
             patologias = jcbPatologias.getSelectedItem().toString();
             municipio = jcbMunicipio.getSelectedItem().toString();
             departamento = jcbDepartamento.getSelectedItem().toString();
-            
+
             usu = opU.usuarioUp();
-            opU.setEstado(usu, "Modf. Paciente crnt:"+carnet);
-            
+            opU.setEstado(usu, "Modf. Paciente crnt:" + carnet);
+
             pte = new Paciente(carnet, nombre, apellido, fechaNa, sexo, semGes, Notas, tipo);
             propiedades = new PropiedadesPaciente(parto, edadMaterna, gravidez, patologias, municipio, departamento);
             opDN.actualizarPaciente(pte, propiedades);

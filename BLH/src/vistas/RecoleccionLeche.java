@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import jxl.write.WriteException;
@@ -45,7 +46,8 @@ public class RecoleccionLeche extends javax.swing.JFrame {
     /** Creates new form RecoleccionLeche */
     public RecoleccionLeche() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//        this.setLocationRelativeTo(null);
         opD.listarDonantes(jtDonantes);
         Date f = enviarFecha("2012-01-01");
         jcFechaParto.setDate(f);
