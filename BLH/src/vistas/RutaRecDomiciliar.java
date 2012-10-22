@@ -53,6 +53,8 @@ public class RutaRecDomiciliar extends javax.swing.JFrame {
         jbAnyadirMedico = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jbAgregarTrayectoria = new javax.swing.JButton();
+        jbModificar = new javax.swing.JButton();
+        jbEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Nueva Ruta - Banco de Leche Humana");
@@ -287,6 +289,30 @@ public class RutaRecDomiciliar extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         jPanel1.add(jbAgregarTrayectoria, gridBagConstraints);
 
+        jbModificar.setText("Modificar");
+        jbModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModificarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 20;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridwidth = 5;
+        jPanel1.add(jbModificar, gridBagConstraints);
+
+        jbEliminar.setText("Eliminar");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 26;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridwidth = 5;
+        jPanel1.add(jbEliminar, gridBagConstraints);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -397,7 +423,8 @@ private void jbAnyadirMedicoActionPerformed(java.awt.event.ActionEvent evt) {//G
         try {
             DefaultTableModel trayectos = (DefaultTableModel) jtTrayectos.getModel();
 
-            if (!jtTrayectos.getValueAt(jtTrayectos.getSelectedRow(), 0).equals("")
+            if (jtTrayectos.getRowCount() > 1
+                    && !jtTrayectos.getValueAt(jtTrayectos.getSelectedRow(), 0).equals("")
                     && !jtTrayectos.getValueAt(jtTrayectos.getSelectedRow(), 1).equals("") && !jtfMedico.getText().equals("")
                     && !jtfMotorista.getText().equals("")
                     && !jtfVehiculo.getText().equals("") && !jtTrayectos.getValueAt(jtTrayectos.getSelectedRow(), 2).equals("")
@@ -407,7 +434,7 @@ private void jbAnyadirMedicoActionPerformed(java.awt.event.ActionEvent evt) {//G
                 limpiarGUI();
                 comoSalir();
             } else {
-                JOptionPane.showMessageDialog(rootPane, "¡Por favor, complete los campos!");
+                JOptionPane.showMessageDialog(rootPane, "¡Por favor, ingrese al menos 2 rutas \ny complete los campos!");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, "¡Por favor, complete los campos!");
@@ -450,6 +477,25 @@ private void jtTrayectosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:ev
         this.jbGuardar.setEnabled(true);
     }
 }//GEN-LAST:event_jtTrayectosFocusLost
+
+    private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
+        // TODO add your handling code here:
+        op.modificarRutas(jtTrayectos);
+    }//GEN-LAST:event_jbModificarActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) jtTrayectos.getModel();
+        if (jtTrayectos.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(rootPane, "¡Seleccione la ruta a eliminar!");
+        } else {
+            int msj = JOptionPane.showConfirmDialog(null, "¿En verdad desea eliminar la ruta?", "Confirmación", JOptionPane.YES_NO_OPTION);
+            if (msj == 0) {
+                op.eliminarRuta(Integer.parseInt(jtTrayectos.getValueAt(jtTrayectos.getSelectedRow(), 0).toString()));
+                model.removeRow(jtTrayectos.getSelectedRow());
+            }
+        }
+    }//GEN-LAST:event_jbEliminarActionPerformed
 
     public VisitaDonacion nuevaVisita() {
         VisitaDonacion visita = null;
@@ -505,7 +551,7 @@ private void jtTrayectosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:ev
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.freixas.jcalendar.JCalendarCombo fechaDos;
+    public static org.freixas.jcalendar.JCalendarCombo fechaDos;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
@@ -515,12 +561,14 @@ private void jtTrayectosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:ev
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton jbAgregarTrayectoria;
-    private javax.swing.JButton jbAnyadirMedico;
-    private javax.swing.JButton jbAnyadirMotorista;
-    private javax.swing.JButton jbAnyadirVeh;
+    public static javax.swing.JButton jbAgregarTrayectoria;
+    public static javax.swing.JButton jbAnyadirMedico;
+    public static javax.swing.JButton jbAnyadirMotorista;
+    public static javax.swing.JButton jbAnyadirVeh;
     private javax.swing.JButton jbCancelar;
-    private javax.swing.JButton jbGuardar;
+    public static javax.swing.JButton jbEliminar;
+    public static javax.swing.JButton jbGuardar;
+    public static javax.swing.JButton jbModificar;
     public static javax.swing.JLabel jlIndiceOc;
     public static javax.swing.JTable jtTrayectos;
     public static javax.swing.JTextField jtfMedico;

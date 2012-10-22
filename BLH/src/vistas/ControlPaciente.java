@@ -23,7 +23,9 @@ import clases.Consulta;
 import clases.Paciente;
 import clases.PropiedadesPaciente;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -108,16 +110,15 @@ public class ControlPaciente extends javax.swing.JFrame {
         jsSemGestacion.setValue(36);
     }
 
-    public void calcularEdad(Date fechaNac) {
-        Date fechaActual = new Date();
-        if (fechaActual.compareTo(fechaNac) > 0) {
-            int difAnos = fechaActual.getYear() - fechaNa.getYear();
-            int difMeses = fechaActual.getMonth() - fechaNa.getMonth();
-            if (difAnos != 0) {
-                difMeses = difMeses;
-            }
-            jlEdad.setText(difAnos + " Años " + difMeses + " Meses");
-        } else {
+    public void calcularEdad(Date fecha) {
+        try {
+            java.util.Date hoy = new Date(); //Fecha de hoy 
+            int meses = ((hoy.getMonth() +1) - (fecha.getMonth()+1));
+            int d = (hoy.getDate() - fecha.getDate());
+            jlEdad.setText(meses +" Meses " +d +" Dias");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
 
