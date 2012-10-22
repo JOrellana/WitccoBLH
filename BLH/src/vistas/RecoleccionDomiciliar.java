@@ -49,6 +49,9 @@ public class RecoleccionDomiciliar extends javax.swing.JFrame {
                     this.setVisible(false);
                     new InstanceOf().actividad.setVisible(true);
                     break;
+                case 3:
+                    this.setVisible(false);
+                    break;
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, "Error: " + e.getMessage());
@@ -263,8 +266,13 @@ private void jbAnyadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         JOptionPane.showMessageDialog(this, "Debe seleccionar la ruta a añadir", "Error.", JOptionPane.ERROR_MESSAGE);
     } else {
         System.out.println("No tiene q entrar");
-        this.hide();
-        NuevaDonacion.jlIdRuta.setText(this.jtRutas.getValueAt(this.jtRutas.getSelectedRow(), 0).toString());
+        int var = Integer.parseInt(jlIndiceOculto.getText());
+        if (var==2) {
+            NuevaDonacion.jlIdRuta.setText(this.jtRutas.getValueAt(this.jtRutas.getSelectedRow(), 0).toString());
+        } else if (var==3) {
+            NuevaDonacionModf.jlIdRuta.setText(this.jtRutas.getValueAt(this.jtRutas.getSelectedRow(), 0).toString());
+        }
+        this.setVisible(false);
     }
 
 
@@ -292,13 +300,13 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 
     private void jbModificarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarRutaActionPerformed
         // TODO add your handling code here:
-    RutaRecDomiciliar rrd = new RutaRecDomiciliar();
-    rrd.setVisible(true);
-    RutaRecDomiciliar.jlIndiceOc.setText(jlIndiceOculto.getText());
-    System.out.println(jlIndiceOculto.getText());
-    op.modificarRuta(Integer.parseInt(jtRutas.getValueAt(jtRutas.getSelectedRow(), 0).toString()), RutaRecDomiciliar.jtTrayectos);
-    this.setVisible(false);
-        
+        RutaRecDomiciliar rrd = new RutaRecDomiciliar();
+        rrd.setVisible(true);
+        RutaRecDomiciliar.jlIndiceOc.setText(jlIndiceOculto.getText());
+        System.out.println(jlIndiceOculto.getText());
+        op.modificarRuta(Integer.parseInt(jtRutas.getValueAt(jtRutas.getSelectedRow(), 0).toString()), RutaRecDomiciliar.jtTrayectos);
+        this.setVisible(false);
+
     }//GEN-LAST:event_jbModificarRutaActionPerformed
     /**
      * @param args the command line arguments

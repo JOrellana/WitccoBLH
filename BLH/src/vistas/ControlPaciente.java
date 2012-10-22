@@ -80,6 +80,7 @@ public class ControlPaciente extends javax.swing.JFrame {
         this.municipio = jcbMunicipio.getSelectedItem().toString();
         jtfEncargado.setEditable(false);
         jtConsultas.setModel(buscar.model);
+        
     }
 
     public void limpiarHabilitarValores() {
@@ -633,7 +634,7 @@ public class ControlPaciente extends javax.swing.JFrame {
         jPanel2.add(jLabel15, gridBagConstraints);
 
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("Nº Tarjeta:");
+        jLabel16.setText("Expediente:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
@@ -745,7 +746,7 @@ public class ControlPaciente extends javax.swing.JFrame {
         jPanel3.add(jLabel14, gridBagConstraints);
 
         jcfechaNac.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "sábado 1 de enero de 2011" }));
-        jcfechaNac.setDate(new java.util.Date(1293944151000L));
+        jcfechaNac.setDate(new java.util.Date(1341204951000L));
         jcfechaNac.addDateListener(new org.freixas.jcalendar.DateListener() {
             public void dateChanged(org.freixas.jcalendar.DateEvent evt) {
                 jcfechaNacDateChanged(evt);
@@ -961,7 +962,7 @@ public class ControlPaciente extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 7;
         jPanel4.add(jLabel19, gridBagConstraints);
 
-        jcbPatologias.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sepsis. Neumonía Temprana", "Sepsis. Neumonía Nosocomial", "Hemorragia Intra Ventricular", "Leucomalacia Peri Ventricular", "Cardiopatia Congenita", "Retinopatia grado III", "Retinopatia grado IV", "Displasia VP", "Urosepsis", "Urosepsis Hongos", "Enterocolitis", "Otras Patologías" }));
+        jcbPatologias.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Madre Sana", "Diabetes Mellitus", "Infeccion de Vias Urinarias", "Hipertension Arterial", "Preeclampsia", "Eclampsia", "Sindrome de Hellp", "Otras Patologías" }));
         jcbPatologias.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jcbPatologiasItemStateChanged(evt);
@@ -1417,6 +1418,7 @@ public class ControlPaciente extends javax.swing.JFrame {
         if (jtConsultas.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(rootPane, "¡Seleccione la consulta a abrir!");
         } else {
+            jbAbrirConsulta.setEnabled(false);
             InfoConsulta info = new InfoConsulta();
             info.setVisible(true);
             Consulta consulta;
@@ -1454,7 +1456,7 @@ public class ControlPaciente extends javax.swing.JFrame {
             }
             consulta = new Consulta(null, carnet, peso, estatura, String.valueOf(pCefalico), Integer.parseInt(jvmp), condicionSalud, Double.parseDouble(racion), Notas);
             info.ori = consulta;
-            jbAbrirConsulta.setEnabled(false);
+            
 
         }
     }//GEN-LAST:event_jbAbrirConsultaActionPerformed

@@ -620,6 +620,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     // TODO add your handling code here:
     new AdministrarEncargado().setVisible(true);
     AdministrarEncargado.jlIndiceOculto.setText("2");
+    AdministrarEncargado.jbAgregar.setEnabled(false);
     this.setVisible(false);
 }//GEN-LAST:event_jMenuItem1ActionPerformed
 

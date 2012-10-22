@@ -11,7 +11,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
-
 /**
  *
  * @author Chavez Vigil
@@ -355,6 +354,16 @@ public class Calculos {
                     model.addElement("Usulután");
                     combo.setModel(model);
                     break;
+                case 14:
+                    model = new DefaultComboBoxModel();
+                    model.addElement("Guatemala");
+                    model.addElement("Honduras");
+                    model.addElement("Belice");
+                    model.addElement("Nicaragua");
+                    model.addElement("Costa Rica");
+                    model.addElement("Panamá");
+                    combo.setModel(model);
+                    break;
 
             }
         } catch (Exception e) {
@@ -369,15 +378,15 @@ public class Calculos {
             final long MILLSECS_PER_DAY = 24 * 60 * 60 * 1000;
             java.util.Date hoy = new Date(); //Fecha de hoy 
 
-            int año = fecha.getYear()+1900;
-            int mes = fecha.getMonth()+1;
+            int año = fecha.getYear() + 1900;
+            int mes = fecha.getMonth() + 1;
             int dia = fecha.getDate();
             Calendar calendar = new GregorianCalendar(año, mes - 1, dia);
             java.sql.Date fec;
             fec = new java.sql.Date(calendar.getTimeInMillis());
 
             long diferencia = (hoy.getTime() - fec.getTime()) / MILLSECS_PER_DAY;
-            dias = "Dias: "+String.valueOf(diferencia);
+            dias = "Dias: " + String.valueOf(diferencia);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());

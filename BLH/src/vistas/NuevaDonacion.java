@@ -359,7 +359,7 @@ public class NuevaDonacion extends javax.swing.JFrame {
         fechaDon = sdf.format(fechaNa);
     }
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        this.hide();
+        this.setVisible(false);
     }//GEN-LAST:event_formWindowClosed
 
     private void jbIdRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIdRutaActionPerformed
@@ -387,7 +387,7 @@ private void jsEstaturaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FI
 
 private void jbCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelar1ActionPerformed
 //    new InstanceOf().donante.setVisible(true);
-    this.hide();
+    this.setVisible(false);
 }//GEN-LAST:event_jbCancelar1ActionPerformed
 
 private void jbAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAceptarActionPerformed

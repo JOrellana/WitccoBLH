@@ -216,7 +216,6 @@ public class OperacionesUsuarios {
             if (!resultado1.next()) {
                 PreparedStatement sent1 = con.conectar().prepareStatement("INSERT INTO Usuario (Username,Password,administrador) VALUES ('root','admin','true')");
                 sent1.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Administrador creado");
             }
             Statement sentencia = con.conectar().createStatement();
             ResultSet resultado = sentencia.executeQuery("SELECT IdVisitaDonacion FROM VisitaDonacion WHERE LugarSalida ='salvavidas'");
@@ -245,7 +244,9 @@ public class OperacionesUsuarios {
                 sent4.executeUpdate();
                 PreparedStatement sent5 = con.conectar().prepareStatement("INSERT INTO VisitaDonacion (LugarSalida,JVPM,IdUnidad) VALUES ('salvavidas','1','1')");
                 sent5.executeUpdate();
-                JOptionPane.showMessageDialog(null, "¡Salvavidas almacenado correctamente!");
+                PreparedStatement sent6 = con.conectar().prepareStatement("INSERT INTO Ruta (Descripcion) VALUES ('salvavidas')");
+                sent6.executeUpdate();
+                
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());

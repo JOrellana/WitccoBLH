@@ -400,15 +400,28 @@ public class AdministrarEncargado extends javax.swing.JFrame {
     }//GEN-LAST:event_jbEliminarEncargadoActionPerformed
 
     private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        new ControlPaciente().setVisible(true);
+        comoSalir();
     }//GEN-LAST:event_jbCancelarActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
-        new ControlPaciente().setVisible(true);
+        comoSalir();
     }//GEN-LAST:event_formWindowClosed
+
+    public void comoSalir() {
+        int var = Integer.parseInt(jlIndiceOculto.getText());
+        switch (var) {
+            case 1:
+                new ControlPaciente().setVisible(true);
+                this.setVisible(false);
+                break;
+            case 2:
+                new SeleccionActividad().setVisible(true);
+                this.setVisible(false);
+                break;
+
+        }
+    }
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         // TODO add your handling code here:
@@ -426,7 +439,7 @@ public class AdministrarEncargado extends javax.swing.JFrame {
     }//GEN-LAST:event_jbBuscarActionPerformed
 
 private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
- // TODO add your handling code here:
+    // TODO add your handling code here:
     this.setVisible(false);
     new SeleccionActividad().setVisible(true);
 }//GEN-LAST:event_jMenuItem2ActionPerformed

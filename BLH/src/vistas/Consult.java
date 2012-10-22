@@ -56,12 +56,26 @@ public class Consult extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         condicionSalud = new javax.swing.ButtonGroup();
+        jPanel6 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtfDiagnostico = new javax.swing.JEditorPane();
         jbCancelar = new javax.swing.JButton();
         jbAceptar = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jtfRacionAsignada = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jrbNiñoSano = new javax.swing.JRadioButton();
+        jrbIRA = new javax.swing.JRadioButton();
+        jrbEDA = new javax.swing.JRadioButton();
+        jrbOtra = new javax.swing.JRadioButton();
+        jLabel9 = new javax.swing.JLabel();
+        jtfOtraEnfermedad = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jcbPatologia = new javax.swing.JComboBox();
         jPanel3 = new javax.swing.JPanel();
         jlFechaNac = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -78,17 +92,6 @@ public class Consult extends javax.swing.JFrame {
         jbAgregarMedico = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jlCarnet = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jrbOtra = new javax.swing.JRadioButton();
-        jrbNiñoSano = new javax.swing.JRadioButton();
-        jrbIRA = new javax.swing.JRadioButton();
-        jrbEDA = new javax.swing.JRadioButton();
-        jtfOtraEnfermedad = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jtfRacionAsignada = new javax.swing.JTextField();
-        jcbPatologia = new javax.swing.JComboBox();
-        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Nueva Consulta - Banco de Leche Humana");
@@ -98,6 +101,8 @@ public class Consult extends javax.swing.JFrame {
                 formWindowClosed(evt);
             }
         });
+
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(142, 180, 227));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -151,6 +156,160 @@ public class Consult extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 5;
         jPanel2.add(jbAceptar, gridBagConstraints);
 
+        jPanel6.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 634, 253));
+
+        jPanel4.setBackground(new java.awt.Color(142, 180, 227));
+        jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        net.java.dev.koalalayout.KoalaLayout koalaLayout3 = new net.java.dev.koalalayout.KoalaLayout();
+        koalaLayout3.setGridheight(34);
+        koalaLayout3.setGridwidth(20);
+        jPanel4.setLayout(koalaLayout3);
+
+        jtfRacionAsignada.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtfRacionAsignadaFocusLost(evt);
+            }
+        });
+        jtfRacionAsignada.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfRacionAsignadaKeyTyped(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 30;
+        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.gridheight = 3;
+        jPanel4.add(jtfRacionAsignada, gridBagConstraints);
+
+        jLabel14.setText("Ración Asignada: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 30;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridheight = 3;
+        jPanel4.add(jLabel14, gridBagConstraints);
+
+        jPanel1.setBackground(new java.awt.Color(142, 180, 227));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Hijo de madre donante"));
+
+        condicionSalud.add(jrbNiñoSano);
+        jrbNiñoSano.setText("Niño sano");
+        jrbNiñoSano.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbNiñoSanoActionPerformed(evt);
+            }
+        });
+
+        condicionSalud.add(jrbIRA);
+        jrbIRA.setText("IRA");
+        jrbIRA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbIRAActionPerformed(evt);
+            }
+        });
+
+        condicionSalud.add(jrbEDA);
+        jrbEDA.setText("EDA");
+        jrbEDA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbEDAActionPerformed(evt);
+            }
+        });
+
+        condicionSalud.add(jrbOtra);
+        jrbOtra.setText("Otra");
+        jrbOtra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbOtraActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Condicion de salud:");
+
+        jtfOtraEnfermedad.setEnabled(false);
+        jtfOtraEnfermedad.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtfOtraEnfermedadFocusLost(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jrbEDA, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jrbIRA, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jrbOtra, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jrbNiñoSano, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtfOtraEnfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jrbNiñoSano, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jrbIRA, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jrbEDA, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jrbOtra, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfOtraEnfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 18;
+        gridBagConstraints.gridheight = 20;
+        jPanel4.add(jPanel1, gridBagConstraints);
+
+        jPanel5.setBackground(new java.awt.Color(142, 180, 227));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Beneficiario"));
+
+        jLabel11.setText("Patologia:");
+
+        jcbPatologia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ninguna", "Prematuro", "Bajo peso", "Retinopatia ", "Uropatia", "Apnea", "ECN", "Displasia BroncoPulmonar", "Sepsis Temprana", "Sepsis Nosocomial", "Hemorragia Intraventricular", "Leucomalacia PeriVentricular", "Cardiopatia Congenita", "Neumonia Congenita", "Moniliasis", "Anemia", "Vomitos / Residuos", "Otras Patologias", " " }));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jcbPatologia, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbPatologia, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridwidth = 18;
+        gridBagConstraints.gridheight = 7;
+        jPanel4.add(jPanel5, gridBagConstraints);
+
+        jPanel6.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 317, 390));
+
         jPanel3.setBackground(new java.awt.Color(142, 180, 227));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         net.java.dev.koalalayout.KoalaLayout koalaLayout2 = new net.java.dev.koalalayout.KoalaLayout();
@@ -167,7 +326,7 @@ public class Consult extends javax.swing.JFrame {
         jLabel2.setText("Fecha de consulta:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 3;
         jPanel3.add(jLabel2, gridBagConstraints);
@@ -175,7 +334,7 @@ public class Consult extends javax.swing.JFrame {
         jLabel3.setText("Per. cefálico (cm):");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 3;
         jPanel3.add(jLabel3, gridBagConstraints);
@@ -200,7 +359,7 @@ public class Consult extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.gridheight = 3;
         jPanel3.add(jsPerimetroCefalico, gridBagConstraints);
@@ -254,9 +413,15 @@ public class Consult extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.gridheight = 3;
         jPanel3.add(jsEstatura, gridBagConstraints);
+
+        jcFechaConsulta.addDateListener(new org.freixas.jcalendar.DateListener() {
+            public void dateChanged(org.freixas.jcalendar.DateEvent evt) {
+                jcFechaConsultaDateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.gridwidth = 11;
         gridBagConstraints.gridheight = 3;
         jPanel3.add(jcFechaConsulta, gridBagConstraints);
@@ -272,9 +437,9 @@ public class Consult extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 29;
-        gridBagConstraints.gridwidth = 11;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 9;
         gridBagConstraints.gridheight = 3;
         jPanel3.add(jtfMedico, gridBagConstraints);
 
@@ -282,21 +447,22 @@ public class Consult extends javax.swing.JFrame {
         jLabel12.setText("Médico:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.gridheight = 2;
         jPanel3.add(jLabel12, gridBagConstraints);
 
-        jbAgregarMedico.setText("Agregar");
+        jbAgregarMedico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/add.png"))); // NOI18N
+        jbAgregarMedico.setToolTipText("Agrega un Medico");
         jbAgregarMedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbAgregarMedicoActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 13;
-        gridBagConstraints.gridy = 29;
-        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridx = 16;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 3;
         jPanel3.add(jbAgregarMedico, gridBagConstraints);
 
@@ -314,161 +480,21 @@ public class Consult extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 3;
         jPanel3.add(jlCarnet, gridBagConstraints);
 
-        jPanel4.setBackground(new java.awt.Color(142, 180, 227));
-        jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        net.java.dev.koalalayout.KoalaLayout koalaLayout3 = new net.java.dev.koalalayout.KoalaLayout();
-        koalaLayout3.setGridheight(34);
-        koalaLayout3.setGridwidth(20);
-        jPanel4.setLayout(koalaLayout3);
-
-        jLabel9.setText("Condicion de salud:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.gridheight = 3;
-        jPanel4.add(jLabel9, gridBagConstraints);
-
-        condicionSalud.add(jrbOtra);
-        jrbOtra.setText("Otra");
-        jrbOtra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrbOtraActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.gridheight = 3;
-        jPanel4.add(jrbOtra, gridBagConstraints);
-
-        condicionSalud.add(jrbNiñoSano);
-        jrbNiñoSano.setText("Niño sano");
-        jrbNiñoSano.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrbNiñoSanoActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 3;
-        jPanel4.add(jrbNiñoSano, gridBagConstraints);
-
-        condicionSalud.add(jrbIRA);
-        jrbIRA.setText("IRA");
-        jrbIRA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrbIRAActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 3;
-        jPanel4.add(jrbIRA, gridBagConstraints);
-
-        condicionSalud.add(jrbEDA);
-        jrbEDA.setText("EDA");
-        jrbEDA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrbEDAActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 3;
-        jPanel4.add(jrbEDA, gridBagConstraints);
-
-        jtfOtraEnfermedad.setEnabled(false);
-        jtfOtraEnfermedad.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jtfOtraEnfermedadFocusLost(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridwidth = 13;
-        gridBagConstraints.gridheight = 3;
-        jPanel4.add(jtfOtraEnfermedad, gridBagConstraints);
-
-        jLabel11.setText("Patologia:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.gridheight = 3;
-        jPanel4.add(jLabel11, gridBagConstraints);
-
-        jtfRacionAsignada.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jtfRacionAsignadaFocusLost(evt);
-            }
-        });
-        jtfRacionAsignada.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtfRacionAsignadaKeyTyped(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 28;
-        gridBagConstraints.gridwidth = 10;
-        gridBagConstraints.gridheight = 3;
-        jPanel4.add(jtfRacionAsignada, gridBagConstraints);
-
-        jcbPatologia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ninguna", "Retinopatia severa", "Uropatia", "Apnea", "ECN", "Septis", "Neumonia Nosocomial", "Moniliasis", "Anemia", "Vomitos / Residuos", " " }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.gridwidth = 11;
-        gridBagConstraints.gridheight = 3;
-        jPanel4.add(jcbPatologia, gridBagConstraints);
-
-        jLabel14.setText("Ración Asignada: ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 28;
-        gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.gridheight = 3;
-        jPanel4.add(jLabel14, gridBagConstraints);
+        jPanel6.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 390));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 634, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-650)/2, (screenSize.height-628)/2, 650, 628);
+        setBounds((screenSize.width-639)/2, (screenSize.height-680)/2, 639, 680);
     }// </editor-fold>//GEN-END:initComponents
 
         private void jrbOtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbOtraActionPerformed
@@ -617,6 +643,12 @@ private void jbAgregarMedicoActionPerformed(java.awt.event.ActionEvent evt) {//G
          perimetroCefalico = jsPerimetroCefalico.getValue().toString();
     }//GEN-LAST:event_jsPerimetroCefalicoFocusLost
 
+private void jcFechaConsultaDateChanged(org.freixas.jcalendar.DateEvent evt) {//GEN-FIRST:event_jcFechaConsultaDateChanged
+ // TODO add your handling code here:
+    fecha = jcFechaConsulta.getDate();
+    
+}//GEN-LAST:event_jcFechaConsultaDateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -665,9 +697,12 @@ private void jbAgregarMedicoActionPerformed(java.awt.event.ActionEvent evt) {//G
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbAceptar;
     private javax.swing.JButton jbAgregarMedico;

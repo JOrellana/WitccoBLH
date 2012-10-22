@@ -135,6 +135,7 @@
                         </Column>
                       </TableColumnModel>
                     </Property>
+                    <Property name="rowHeight" type="int" value="25"/>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
@@ -4161,6 +4162,7 @@
                     </Column>
                   </TableColumnModel>
                 </Property>
+                <Property name="rowHeight" type="int" value="25"/>
                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
@@ -5570,18 +5572,6 @@
             </Property>
           </Properties>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jbGuardar">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes/disk.png"/>
-                </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Guardar informaci&#xf3;n del donante"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbGuardarActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="jbCancelar">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -5604,6 +5594,18 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbExcell1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jbGuardar">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/disk.png"/>
+                </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Guarda informaci&#xf3;n del donante"/>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbGuardarActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -5684,7 +5686,7 @@
               <Parameters>
                 <CodeExpression id="347">
                   <ExpressionOrigin>
-                    <Value type="int" value="51"/>
+                    <Value type="int" value="54"/>
                   </ExpressionOrigin>
                 </CodeExpression>
               </Parameters>
@@ -5734,11 +5736,11 @@
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
               <Parameters>
-                <CodeExpression id="351_jbGuardar">
-                  <CodeVariable name="jbGuardar" type="8194" declaredType="javax.swing.JButton"/>
+                <CodeExpression id="351_jbCancelar">
+                  <CodeVariable name="jbCancelar" type="8194" declaredType="javax.swing.JButton"/>
                   <ExpressionOrigin>
                     <ExpressionProvider type="ComponentRef">
-                      <ComponentRef name="jbGuardar"/>
+                      <ComponentRef name="jbCancelar"/>
                     </ExpressionProvider>
                   </ExpressionOrigin>
                 </CodeExpression>
@@ -5766,7 +5768,7 @@
               <Parameters>
                 <CodeExpression id="353">
                   <ExpressionOrigin>
-                    <Value type="int" value="54"/>
+                    <Value type="int" value="57"/>
                   </ExpressionOrigin>
                 </CodeExpression>
               </Parameters>
@@ -5816,11 +5818,11 @@
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
               <Parameters>
-                <CodeExpression id="357_jbCancelar">
-                  <CodeVariable name="jbCancelar" type="8194" declaredType="javax.swing.JButton"/>
+                <CodeExpression id="357_jbExcell1">
+                  <CodeVariable name="jbExcell1" type="8194" declaredType="javax.swing.JButton"/>
                   <ExpressionOrigin>
                     <ExpressionProvider type="ComponentRef">
-                      <ComponentRef name="jbCancelar"/>
+                      <ComponentRef name="jbExcell1"/>
                     </ExpressionProvider>
                   </ExpressionOrigin>
                 </CodeExpression>
@@ -5848,7 +5850,7 @@
               <Parameters>
                 <CodeExpression id="359">
                   <ExpressionOrigin>
-                    <Value type="int" value="57"/>
+                    <Value type="int" value="51"/>
                   </ExpressionOrigin>
                 </CodeExpression>
               </Parameters>
@@ -5898,11 +5900,11 @@
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
               <Parameters>
-                <CodeExpression id="363_jbExcell1">
-                  <CodeVariable name="jbExcell1" type="8194" declaredType="javax.swing.JButton"/>
+                <CodeExpression id="363_jbGuardar">
+                  <CodeVariable name="jbGuardar" type="8194" declaredType="javax.swing.JButton"/>
                   <ExpressionOrigin>
                     <ExpressionProvider type="ComponentRef">
-                      <ComponentRef name="jbExcell1"/>
+                      <ComponentRef name="jbGuardar"/>
                     </ExpressionProvider>
                   </ExpressionOrigin>
                 </CodeExpression>

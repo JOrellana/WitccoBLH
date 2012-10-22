@@ -24,14 +24,14 @@ public class OperacionesDonacion {
 
     Conexion con = new Conexion();
 //instance table model
-    DefaultTableModel tableModel = new DefaultTableModel() {
-
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            //Only the third column
-            return false;
-        }
-    };
+//    DefaultTableModel tableModel = new DefaultTableModel() {
+//
+//        @Override
+//        public boolean isCellEditable(int row, int column) {
+//            //Only the third column
+//            return false;
+//        }
+//    };
 
     public void listarDonantes(JTable tabla) {
         try {
@@ -41,7 +41,14 @@ public class OperacionesDonacion {
 
             sentencia = con.conectar().createStatement();
             resultado = sentencia.executeQuery("SELECT * FROM Persona ORDER BY Documento asc");
+            DefaultTableModel tableModel = new DefaultTableModel() {
 
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    //Only the third column
+                    return false;
+                }
+            };
 
             tableModel.addColumn("Documento");
             tableModel.addColumn("Nombres");
@@ -175,8 +182,15 @@ public class OperacionesDonacion {
 
             sentencia = con.conectar().createStatement();
             resultado = sentencia.executeQuery("SELECT * FROM Donacion WHERE Documento = '" + doc + "' ORDER BY FechaDonacion asc");
-            DefaultTableModel modelo = new DefaultTableModel();
 
+            DefaultTableModel modelo = new DefaultTableModel() {
+
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    //Only the third column
+                    return false;
+                }
+            };
             modelo.addColumn("Fecha Donacion");
             modelo.addColumn("Tipo");
             modelo.addColumn("Racion Aceptada");
@@ -229,6 +243,22 @@ public class OperacionesDonacion {
         }
     }
 
+   public void modificarDonacion(Donacion d, Donacion mod) {
+        try {
+
+            Statement sen = con.conectar().createStatement();
+            ResultSet res = sen.executeQuery("SELECT IdDonacion FROM Donacion WHERE (FechaDonacion = '" + d.getFechaDon() + "') AND (TipoDonacion = '" + d.getTipo() + "') AND (RacionAcep = '" + d.getRacAceptada() + "') AND (RacionDesc = '" + d.getRacDescartada() + "') AND (Documento = '" + d.getDocumento() + "') AND (Estatura = '" + d.getEstatura() + "') AND (Peso = '" + d.getPeso() + "')");
+            if (res.next() == true) {
+                int id = res.getInt("IdDonacion");
+                PreparedStatement sentencia = con.conectar().prepareStatement("UPDATE Donacion SET FechaDonacion ='" + mod.getFechaDon() + "', TipoDonacion ='" + mod.getTipo() + "',RacionAcep ='" + mod.getRacAceptada() + "',RacionDesc ='" + mod.getRacDescartada() + "',Estatura ='" + mod.getEstatura() + "',Peso ='" + mod.getPeso() + "' WHERE IdDonacion = '" + id + "'");
+                sentencia.executeUpdate();
+                JOptionPane.showMessageDialog(null, "¡Datos Modificados!");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
+      
     public void buscarDonante(JTable tabla, String condicion, String aBuscar) {
         try {
 

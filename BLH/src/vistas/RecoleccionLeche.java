@@ -5,6 +5,7 @@ import Instancia.InstanceOfDonacion;
 import Operaciones.OperacionesExcel;
 import accesoDatos.OperacionesDonacion;
 import accesoDatos.OperacionesUsuarios;
+import clases.Donacion;
 import clases.Donante;
 import java.io.File;
 import java.io.IOException;
@@ -136,9 +137,9 @@ public class RecoleccionLeche extends javax.swing.JFrame {
         jbNuevaDonante = new javax.swing.JButton();
         jbExcel = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
-        jbGuardar = new javax.swing.JButton();
         jbCancelar = new javax.swing.JButton();
         jbExcell1 = new javax.swing.JButton();
+        jbGuardar = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
@@ -192,6 +193,7 @@ public class RecoleccionLeche extends javax.swing.JFrame {
                 "Fecha Donacion", "Racion Donada", "Tipo", "Estatura(cm)", "Peso(lb)"
             }
         ));
+        jtDonaciones.setRowHeight(25);
         jScrollPane1.setViewportView(jtDonaciones);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -766,6 +768,7 @@ public class RecoleccionLeche extends javax.swing.JFrame {
         });
         jtDonantes.setToolTipText("Donantes");
         jtDonantes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jtDonantes.setRowHeight(25);
         jScrollPane6.setViewportView(jtDonantes);
         jtDonantes.getColumnModel().getColumn(0).setResizable(false);
         jtDonantes.getColumnModel().getColumn(0).setPreferredWidth(30);
@@ -1025,21 +1028,6 @@ public class RecoleccionLeche extends javax.swing.JFrame {
         koalaLayout17.setGridwidth(60);
         jPanel11.setLayout(koalaLayout17);
 
-        jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disk.png"))); // NOI18N
-        jbGuardar.setToolTipText("Guardar información del donante");
-        jbGuardar.setEnabled(false);
-        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbGuardarActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 51;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 4;
-        jPanel11.add(jbGuardar, gridBagConstraints);
-
         jbCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancel.png"))); // NOI18N
         jbCancelar.setToolTipText("Cancelar información del donante");
         jbCancelar.setEnabled(false);
@@ -1069,6 +1057,21 @@ public class RecoleccionLeche extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 4;
         jPanel11.add(jbExcell1, gridBagConstraints);
+
+        jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disk.png"))); // NOI18N
+        jbGuardar.setToolTipText("Guarda información del donante");
+        jbGuardar.setEnabled(false);
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 51;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 4;
+        jPanel11.add(jbGuardar, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
@@ -1269,21 +1272,33 @@ public class RecoleccionLeche extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 private void jbAbrirDonacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAbrirDonacionActionPerformed
-    new InstanceOfDonacion().newDonacion.setVisible(true);
     String d = jtfDocumento.getText();
-    NuevaDonacion.jlDocumento.setText(d);
-    NuevaDonacion.jcFechaDonacion.setDate(enviarFecha(jtDonaciones.getValueAt(jtDonaciones.getSelectedRow(), 0).toString()));
+    String tip = "";
+    new NuevaDonacionModf().setVisible(true);
+    NuevaDonacionModf.jlDocumento.setText(d);
+    NuevaDonacionModf.jcFechaDonacion.setDate(enviarFecha(jtDonaciones.getValueAt(jtDonaciones.getSelectedRow(), 0).toString()));
+    String fec = jtDonaciones.getValueAt(jtDonaciones.getSelectedRow(), 0).toString();
     if ("Local".equals(jtDonaciones.getValueAt(jtDonaciones.getSelectedRow(), 1))) {
-        NuevaDonacion.jrbLocal.setSelected(true);
+        NuevaDonacionModf.jrbLocal.setSelected(true);
+        tip = "Local";
     }
     if ("Domiciliar".equals(jtDonaciones.getValueAt(jtDonaciones.getSelectedRow(), 1))) {
-        NuevaDonacion.jrbDomiciliar.setSelected(true);
+        NuevaDonacionModf.jrbDomiciliar.setSelected(true);
+        tip = "Domiciliar";
     }
-    NuevaDonacion.jtfRacionAceptada.setText(jtDonaciones.getValueAt(jtDonaciones.getSelectedRow(), 2).toString());
-    NuevaDonacion.jtfRacionDescartada.setText(jtDonaciones.getValueAt(jtDonaciones.getSelectedRow(), 3).toString());
-    Object est = jtDonaciones.getValueAt(jtDonaciones.getSelectedRow(), 4);
-    NuevaDonacion.jsEstatura.setValue(est);
-    NuevaDonacion.jsPeso.setValue(jtDonaciones.getValueAt(jtDonaciones.getSelectedRow(), 5));
+    Integer esta = new Integer(jtDonaciones.getValueAt(jtDonaciones.getSelectedRow(), 4).toString());
+    NuevaDonacionModf.jsEstatura.setValue(esta);
+
+    Integer pes = new Integer(jtDonaciones.getValueAt(jtDonaciones.getSelectedRow(), 5).toString());
+    NuevaDonacionModf.jsPeso.setValue(pes);
+    String racA = jtDonaciones.getValueAt(jtDonaciones.getSelectedRow(), 2).toString();
+    NuevaDonacionModf.jtfRacionAceptada.setText(racA);
+
+    String racD = jtDonaciones.getValueAt(jtDonaciones.getSelectedRow(), 3).toString();
+    NuevaDonacionModf.jtfRacionDescartada.setText(racD);
+    Donacion don = new Donacion(fec, tip, racA, racD, d, jtDonaciones.getValueAt(jtDonaciones.getSelectedRow(), 4).toString(), jtDonaciones.getValueAt(jtDonaciones.getSelectedRow(), 5).toString());
+    NuevaDonacionModf.ori = don;
+    
 }//GEN-LAST:event_jbAbrirDonacionActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
@@ -1520,19 +1535,6 @@ private void jbAbrirInfoDonanteActionPerformed(java.awt.event.ActionEvent evt) {
         semGest = jsSGest.getValue().toString();
 
     }
-private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-    if (jtfNombre.getText().equals("") || jtfApellido.getText().equals("") || jtfDocumento.getText().equals("") || jtfDocumento.getText().equals("") || jtfTelefono.getText().equals("")) {
-        JOptionPane.showMessageDialog(null, "¡Por favor, complete los datos de la donante!");
-    } else {
-        asigancion();
-        Donante dte = new Donante(documento, nombre, apellido, fechaNac, direccion, peso, estatura, telefono, semGest, fechaParto, vdrl, hbsag, hiv, transSang, tabaq, etilis, aptaDon, fechaObtDatos);
-        opD.almacenarInfoDonante(dte);
-    }
-    opD.listarDonantes(jtDonantes);
-    limpiarHabilitarValores(false);
-
-}//GEN-LAST:event_jbGuardarActionPerformed
-
 private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
     // TODO add your handling code here:
 }//GEN-LAST:event_jbCancelarActionPerformed
@@ -1560,7 +1562,7 @@ private void jsSGestMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-F
 
 private void jbEliminarDonacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarDonacionActionPerformed
     try {
-        if (jtDonantes.getSelectedRow() == -1) {
+        if (jtDonaciones.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar la donacion a eliminar");
         } else {
             int msj = JOptionPane.showConfirmDialog(rootPane, "¿En verdad desea eliminar la donacion?", "Confirmación", JOptionPane.YES_NO_OPTION);
@@ -1568,11 +1570,14 @@ private void jbEliminarDonacionActionPerformed(java.awt.event.ActionEvent evt) {
                 if (opU.isAdmin()) {
                     String dc = jtfDocumento.getText();
                     opD.eliminarDonacion(dc, jtDonaciones.getValueAt(jtDonaciones.getSelectedRow(), 0).toString());
-                    DefaultTableModel model = (DefaultTableModel) jtDonaciones.getModel();
-                    model.removeRow(jtDonaciones.getSelectedRow());
+
 
                     usu = opU.usuarioUp();
-                    opU.setEstado(usu, "El. don. fecha: " + jtDonaciones.getValueAt(jtDonaciones.getSelectedRow(), 0).toString() + "dontCarnet: " + dc);
+
+                    String par = "Elm don fecha: " + jtDonaciones.getValueAt(jtDonaciones.getSelectedRow(), 0) + "dontCarnet: " + dc;
+                    opU.setEstado(usu, par);
+                    DefaultTableModel model = (DefaultTableModel) jtDonaciones.getModel();
+                    model.removeRow(jtDonaciones.getSelectedRow());
 
 
                 } else {
@@ -1583,7 +1588,7 @@ private void jbEliminarDonacionActionPerformed(java.awt.event.ActionEvent evt) {
 
         }
     } catch (Exception e) {
-        JOptionPane.showMessageDialog(rootPane, "Error: " + e.getMessage());
+        JOptionPane.showMessageDialog(rootPane, "Error Act: " + e.getMessage());
     }
 }//GEN-LAST:event_jbEliminarDonacionActionPerformed
 
@@ -1765,6 +1770,10 @@ private void jrbAptaSIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
 private void jrbAptaNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbAptaNOActionPerformed
     aptaDon = "No";
 }//GEN-LAST:event_jrbAptaNOActionPerformed
+
+private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+ // TODO add your handling code here:
+}//GEN-LAST:event_jbGuardarActionPerformed
     /**
      * @param args the command line arguments
      */

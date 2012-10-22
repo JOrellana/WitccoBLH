@@ -2374,7 +2374,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel16">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="N&#xba; Tarjeta:"/>
+                    <Property name="text" type="java.lang.String" value="Expediente:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jtfNombres">
@@ -3328,7 +3328,7 @@
                       </StringArray>
                     </Property>
                     <Property name="date" type="java.util.Date" editor="org.netbeans.beaninfo.editors.DateEditor">
-                      <SerializedValue value="-84,-19,0,5,115,114,0,14,106,97,118,97,46,117,116,105,108,46,68,97,116,101,104,106,-127,1,75,89,116,25,3,0,0,120,112,119,8,0,0,1,45,69,20,-37,-40,120"/>
+                      <SerializedValue value="-84,-19,0,5,115,114,0,14,106,97,118,97,46,117,116,105,108,46,68,97,116,101,104,106,-127,1,75,89,116,25,3,0,0,120,112,119,8,0,0,1,56,70,11,111,-40,120"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -4825,19 +4825,15 @@
                 <Component class="javax.swing.JComboBox" name="jcbPatologias">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="12">
-                        <StringItem index="0" value="Sepsis. Neumon&#xed;a Temprana"/>
-                        <StringItem index="1" value="Sepsis. Neumon&#xed;a Nosocomial"/>
-                        <StringItem index="2" value="Hemorragia Intra Ventricular"/>
-                        <StringItem index="3" value="Leucomalacia Peri Ventricular"/>
-                        <StringItem index="4" value="Cardiopatia Congenita"/>
-                        <StringItem index="5" value="Retinopatia grado III"/>
-                        <StringItem index="6" value="Retinopatia grado IV"/>
-                        <StringItem index="7" value="Displasia VP"/>
-                        <StringItem index="8" value="Urosepsis"/>
-                        <StringItem index="9" value="Urosepsis Hongos"/>
-                        <StringItem index="10" value="Enterocolitis"/>
-                        <StringItem index="11" value="Otras Patolog&#xed;as"/>
+                      <StringArray count="8">
+                        <StringItem index="0" value="Madre Sana"/>
+                        <StringItem index="1" value="Diabetes Mellitus"/>
+                        <StringItem index="2" value="Infeccion de Vias Urinarias"/>
+                        <StringItem index="3" value="Hipertension Arterial"/>
+                        <StringItem index="4" value="Preeclampsia"/>
+                        <StringItem index="5" value="Eclampsia"/>
+                        <StringItem index="6" value="Sindrome de Hellp"/>
+                        <StringItem index="7" value="Otras Patolog&#xed;as"/>
                       </StringArray>
                     </Property>
                   </Properties>
